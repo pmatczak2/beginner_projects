@@ -26,4 +26,4 @@ if guess == number:
 
 if guess != number:
     number = str(number)
-    print(f"No, that number i was thinking was {number}")
+    print(f"No, the number i was thinking was {number}")
