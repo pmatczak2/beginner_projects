@@ -25,5 +25,4 @@ if guess == number:
     print(f"Great job {my_name}, you guessed my number in {number_guess} guesses")
 
 if guess != number:
-    number = number
     print(f"No, the number i was thinking was {number}")
