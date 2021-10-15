@@ -13,10 +13,10 @@ for number_guess in range(6):
     if guess < number:
         print("you guessed too low")
 
-    if guess > number:
+    elif guess > number:
         print("you guessed too high")
 
-    if guess == number:
+    else:
         print("you guessed correctly")
         break
 
