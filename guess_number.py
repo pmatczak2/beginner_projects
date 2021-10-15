@@ -21,9 +21,9 @@ for number_guess in range(6):
         break
 
 if guess == number:
-    number_guess = str(number_guess + 1)
+    number_guess = (number_guess + 1)
     print(f"Great job {my_name}, you guessed my number in {number_guess} guesses")
 
 if guess != number:
-    number = str(number)
+    number = number
     print(f"No, the number i was thinking was {number}")
