@@ -1,7 +1,7 @@
 import random
 
-NUM_DIGITS = 3
-MAX_GUESSES = 10
+NUM_DIGITS = 1
+MAX_GUESSES = 5
 
 def main():
     print('''Bagels, a deductive logic game.
