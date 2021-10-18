@@ -8,3 +8,12 @@ def get_birthdays(number_of_birthdays):
         birthday = start_of_year + random_number_of_days
         birthdays.append(birthday)
     return birthdays
+
+def get_match(birthdays):
+    if len(birthdays) == len(set(birthdays)):
+        return None
+
+    for a, birthday_a in enumerate(birthdays):
+        for b, birthday_b in enumerate(birthdays[a + 1 :]):
+            if birthday_a == birthday_b:
+                return birthday_a
