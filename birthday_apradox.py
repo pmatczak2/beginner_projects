@@ -35,7 +35,7 @@ while True:
     if response.isdecimal() and (0 < int(response) <= 100):
         num_b_days = int(response)
         break
-print()
+
 
 print('Here are', num_b_days, 'birthdays:')
 birthdays = get_birthdays(num_b_days)
@@ -45,6 +45,13 @@ for i, birthday in enumerate(birthdays):
     month_name = months[birthday.month - 1]
     date_text = '{} {}'.format(month_name, birthday.day)
     print(date_text, end='')
-print()
-print()
 
+match = get_match(birthdays)
+
+print('In this simulation, ', end='')
+if match != None:
+    month_name = months[match.month - 1]
+    dateText = '{} {}'.format(month_name, match.day)
+    print('multiple people have a birthday on', dateText)
+else:
+    print('there are no matching birthdays.')
