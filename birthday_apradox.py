@@ -69,12 +69,12 @@ for i in range(100_000):
         print(i, 'simulations run...')
         birthdays = get_birthdays(num_b_days)
         if get_match(birthdays) != None:
-            simMatch = sim_match + 1
+            sim_match = sim_match + 1
 print('100,000 simulations run.')
 
 probability = round(sim_match / 100_000 * 100, 2)
 print('Out of 100,000 simulations of', num_b_days, 'people, there was a')
 print('matching birthday in that group', sim_match, 'times. This means')
-print('that', numBDays, 'people have a', probability, '% chance of')
+print('that', num_b_days, 'people have a', probability, '% chance of')
 print('having a matching birthday in their group.')
 print('That\'s probably more than you would think!')
