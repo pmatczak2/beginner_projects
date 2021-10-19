@@ -35,7 +35,7 @@ while True:
     if response.isdecimal() and (0 < int(response) <= 100):
         num_b_days = int(response)
         break
-
+print()
 
 print('Here are', num_b_days, 'birthdays:')
 birthdays = get_birthdays(num_b_days)
@@ -45,6 +45,8 @@ for i, birthday in enumerate(birthdays):
     month_name = months[birthday.month - 1]
     date_text = '{} {}'.format(month_name, birthday.day)
     print(date_text, end='')
+print()
+print()
 
 match = get_match(birthdays)
 
@@ -55,3 +57,17 @@ if match != None:
     print('multiple people have a birthday on', dateText)
 else:
     print('there are no matching birthdays.')
+print()
+
+print('Generating', num_b_days, 'random birthdays 100,000 times...')
+input('Press Enter to begin...')
+
+print('Let\'s run another 100,000 simulations.')
+sim_match = 0
+for i in range(100_000):
+    if i % 10_000 == 0:
+        print(i, 'simulations run...')
+        birthdays = get_birthdays(num_b_days)
+        if get_match(birthdays) != None:
+            simMatch = sim_match + 1
+print('100,000 simulations run.')
