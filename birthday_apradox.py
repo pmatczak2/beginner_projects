@@ -53,8 +53,8 @@ match = get_match(birthdays)
 print('In this simulation, ', end='')
 if match != None:
     month_name = months[match.month - 1]
-    dateText = '{} {}'.format(month_name, match.day)
-    print('multiple people have a birthday on', dateText)
+    date_text = '{} {}'.format(month_name, match.day)
+    print('multiple people have a birthday on', date_text)
 else:
     print('there are no matching birthdays.')
 print()
