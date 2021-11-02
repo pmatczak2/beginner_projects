@@ -74,7 +74,18 @@ class Animals:
         self.age = animal_age
         self.name = animal_name
 
+    def type_of_animal(self):
+        return 'This animal is a {}'.format(self.type)
+
+    def age_of_animal(self):
+        return f"ths age is {self.age}"
+
+    def name_of_animal(self):
+        return f"the name of the animal is {self.name}"
+
 # Create a new variable
 # Its important to add the specific parameters!
 c = Animals("dog", 10, "bornie")
-d = Animals()
+print(c.type_of_animal())
+print(c.age_of_animal())
+print(c.type_of_animal())
