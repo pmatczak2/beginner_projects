@@ -24,5 +24,13 @@ import turtle
 
 # the turtle position, color, ect, is the STATE:
 turtle.color('red') # This is the state
-# The turtles movement
+# The turtles movement - forward, backwards, left, right are the methods
+turtle.forward(100) # This is the method
+
+# We can create our very own class with methods!
+
+class Dog:
+
+# with in this class we can define the methods/operations that our class will do.
+# a method
 
