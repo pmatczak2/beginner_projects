@@ -83,9 +83,13 @@ class Animals:
     def name_of_animal(self):
         return f"the name of the animal is {self.name}"
 
+    def number(self):
+        return self.age + 100
+
 # Create a new variable
 # Its important to add the specific parameters!
 c = Animals("dog", 10, "bornie")
 print(c.type_of_animal())
 print(c.age_of_animal())
 print(c.type_of_animal())
+print(c.number())
