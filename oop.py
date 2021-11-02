@@ -16,7 +16,7 @@ print(type(my_name))
 # EVERY TIME YOU CREATE SOMETHING IN PYTHON YOU ARE CREATING A OBJECT IN A CLASS!
 # This class defines the things that the specific object can do.
 
-# Specificly a object has a state and collection of Methods it can do?preform
+# Specifically a object has a state and collection of Methods it can do/preform
 # The state is the thing the object knows about itself
 
 # Example - using Turtle
@@ -36,18 +36,18 @@ class Dog:
     def color(self):
         return "brown"
 
-# Now we can create a variable of class, Dog!
+# Now we can create a variable of our class, Dog!
 x = Dog()
 print(x)
-# The '__main__' is the module tht hte calss was defined in this is set by degault to main
+# The '__main__' is the module tht hte class was defined in this is set by degault to main
 
-# We hace created out cory fitst class!
+# We have created out cory first class!
 
 # Now we can explore something known as the initializer
-# This is something EVERY class should hace! It essentially sets the default parameters for our class.
-# So it's similar to how a turtle has its own dafault srttings
+# This is something EVERY class should have! It essentially sets the default parameters for our class.
+# So it's similar to how a turtle has its own default settings
 
-# We will set up a new class to demonstrate the initialzier!
+# We will set up a new class to demonstrate the initializer!
 
 class Dogs:
 
