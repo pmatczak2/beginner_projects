@@ -92,3 +92,12 @@ def main():
 
         # Show final hands:
         displayHands(playerHand, dealerHand, True)
+
+        playerValue = getHandValue(playerHand)
+        dealerValue = getHandValue(dealerHand)
+        # Handle whether the player won, lost, or tied:
+        if dealerValue > 21:
+            print(f'Dealer busts! You win {bet}!')
+            money += bet
+        elif (playerValue > 21) or (playerValue < dealerValue):
+            print('you laot!')
