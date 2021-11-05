@@ -73,6 +73,17 @@ def main():
                 # The player has busted
                 continue
 
-        if move in ('S', 'D'):
-            # Stand/doubling down stops the player's turn.
-            break
+            if move in ('S', 'D'):
+                # Stand/doubling down stops the player's turn.
+                break
+
+        # Handle the dealer action:
+        if getHandValue(playerHand) < 21:
+            while getHandValue(dealerHand) < 17:
+                # Get dealer hits:
+            print("Dealer Hits...")
+            dealerHand.append(deck.pop())
+            displayHands(playerHand, dealerHand, False)
+
+            if getHandValue(dealerHand) > 21:
+                break # Dealer ha busted
