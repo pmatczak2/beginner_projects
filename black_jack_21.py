@@ -87,3 +87,8 @@ def main():
 
             if getHandValue(dealerHand) > 21:
                 break # Dealer ha busted
+            input("Press Enter to continue...")
+            print('\n\n')
+
+        # Show final hands:
+        displayHands(playerHand, dealerHand, True)
