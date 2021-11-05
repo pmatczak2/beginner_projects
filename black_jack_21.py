@@ -37,14 +37,14 @@ def main():
         bet = getBet(money)
 
         # Give the dealer and the player two cards form the deck:
-        deck - giveDeck()
+        deck = getDeck()
         dealerHand = [deck.pop(), deck.pop()]
-        palyerHand = [deck.pop(), deck.pop()]
+        playerHand = [deck.pop(), deck.pop()]
 
         # Handle player action:
         print('Bet:', bet)
         while True:  # Keep looping until player stands or busts.
-            displayHands(palyerHand, dealerHand, False)
+            displayHands(playerHand, dealerHand, False)
             print()
 
             # Check if the player has bust:
@@ -53,3 +53,26 @@ def main():
 
             # Get the player's move, either H, S, or D:
             move = getMove(playerHand, money - bet)
+
+            # Handle the payer action:
+            if move == 'D':
+                # Player is doubling down, they have increased their bet:
+                additionalBet = getBet(min(bet, (money - bet)))
+                bet += additionalBet
+                print(f"Bet increased to {bet}")
+                print('Bet:', bet)
+
+            if move in ('H', 'D'):
+                # Hit/doubling down take another card.
+                newCard = deck.pop()
+                rank, suit = newCard
+                print(f"You drew a {rank} of {suit}")
+                playerHand.append(newCard)
+
+            if getHandValue(playerHand) > 21:
+                # The player has busted
+                continue
+
+        if move in ('S', 'D'):
+            # Stand/doubling down stops the player's turn.
+            break
