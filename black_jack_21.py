@@ -100,4 +100,13 @@ def main():
             print(f'Dealer busts! You win {bet}!')
             money += bet
         elif (playerValue > 21) or (playerValue < dealerValue):
-            print('you laot!')
+            print('you lost!')
+            money -= bet
+        elif playerValue > dealerValue:
+            print(f"You won {bet}")
+            money += bet
+        elif playerValue == dealerValue:
+            print('It\'s a tie, the bet is returned to you.')
+
+        input('Press enter to continue...')
+        print('\n\n')
