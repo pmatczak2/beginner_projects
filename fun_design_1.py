@@ -2,7 +2,7 @@ import turtle
 screen = turtle.Screen()
 fun = turtle.Turtle()
 screen.bgcolor('black')
-fun.pencolor('cyan')
+fun.pencolor('yellow')
 fun.speed(2000)
 def crazy(var1):
     for i in range(720):
