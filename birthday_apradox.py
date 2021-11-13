@@ -1,5 +1,7 @@
 import datetime, random
+import pysnooper
 
+@pysnooper.snoop()
 def get_birthdays(number_of_birthdays):
     birthdays = []
     for i in range(number_of_birthdays):
