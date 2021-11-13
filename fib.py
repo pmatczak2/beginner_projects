@@ -22,21 +22,21 @@ def fib(n):
 fib(5)
 
 def num(n):
-    a=0
-    b=1
-    if(n<0):
+    a = 0
+    b = 1
+    if n < 0:
         print("number is invalid")
-    elif(n==1):
+    elif n == 1:
         print(a)
     else:
         print(0)
         print(1)
-        c=0
-        for i in range(2,n):
+        c = 0
+        for i in range(2, n):
             c = a + b
-            if(c<100):
-                a=b
-                b=c
+            if c < 100:
+                a = b
+                b = c
                 print(c)
 
 num(100)
