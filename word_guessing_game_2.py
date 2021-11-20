@@ -7,7 +7,7 @@ print("I am thinking of a word; here it is:")
 guesses_so_far = "_" * len(secret_word)
 
 letters_guessed = []
-my_attempt = " " * len(secret_word)
+my_attempt = "" * len(secret_word)
 while True:
     print(guesses_so_far)
     guess = input("Guess a letter, 9 to quit: ")
@@ -26,5 +26,5 @@ while True:
     else:
         print(f"Incorrect; try again {''.join(letters_guessed)}")
     if guesses_so_far == secret_word:
-        print("YOU WON")
+        print(f"\nYOU WON! {guesses_so_far} was the secret word.") # made this change
         break
