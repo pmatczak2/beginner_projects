@@ -26,5 +26,5 @@ while True:
     else:
         print(f"Incorrect; try again {''.join(letters_guessed)}")
     if guesses_so_far == secret_word:
-        print(f"\nYOU WON! {guesses_so_far} was the secret word.") # made this change
+        print(f"\nYOU WON! {guesses_so_far.upper()}, was the secret word.") # made this change
         break
