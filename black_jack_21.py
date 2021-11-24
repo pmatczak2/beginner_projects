@@ -110,3 +110,20 @@ def main():
 
         input('Press enter to continue...')
         print('\n\n')
+
+def getBet():
+    while True:  # Keep asking until they enter a valid amount.
+        print(f'How much do you want to bet? (1-{max_bet}, or QUIT)')
+        bet = input('> ').upper().strip()
+        if bet == "QUIT":
+            print("Thanks for playing")
+            sys.exit()
+
+        if not bet.isdecimal():
+            continue #  If the player didn't enter a number, ask again.
+
+        bet = int(bet)
+        if 1 <= bet <= maxBet:
+            return bet  # Player entered a valid bet.
+
+
