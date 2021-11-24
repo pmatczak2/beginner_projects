@@ -111,9 +111,9 @@ def main():
         input('Press enter to continue...')
         print('\n\n')
 
-def getBet():
+def getBet(maxBet):
     while True:  # Keep asking until they enter a valid amount.
-        print(f'How much do you want to bet? (1-{max_bet}, or QUIT)')
+        print(f'How much do you want to bet? (1-{maxBet}, or QUIT)')
         bet = input('> ').upper().strip()
         if bet == "QUIT":
             print("Thanks for playing")
