@@ -126,4 +126,17 @@ def getBet(maxBet):
         if 1 <= bet <= maxBet:
             return bet  # Player entered a valid bet.
 
+def displayHands(playerHand, dealerHand, showDealerHand):
+    print()
+    if showDealerHand:
+        print('DEALER:', getHandValue(dealerHand) )
+        displayCards(dealerHand)
+    else:
+        print('DEALER:???')
+        # Hide the dealer's first card:
+        displayCards([BACKSIDE] + dealerHand[1:])
+
+    # Show Player cards
+    print('PLAYER:', getHandValue(playerHand))
+    displayCards(playerHand)
 
