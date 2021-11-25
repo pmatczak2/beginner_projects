@@ -80,7 +80,7 @@ def main():
         # Handle the dealer action:
         if getHandValue(playerHand) < 21:
             while getHandValue(dealerHand) < 17:
-                # Get dealer hits:
+        #  Get dealer hits:
             print("Dealer Hits...")
             dealerHand.append(deck.pop())
             displayHands(playerHand, dealerHand, False)
@@ -144,7 +144,7 @@ def getHandValue(cards):
     value = 0
     numberOfAces = 0
 
-    #  Add value fro a none ace card
+    #  Add value for a none-ace card
     for card in cards:
         rank = card[0] # card is a tuple like (rank, suit)
         if rank == 'A':
@@ -162,3 +162,24 @@ def getHandValue(cards):
             value += 10
 
     return value
+
+def displayCards(cards):
+    rows = ['', '', '', '', ''] #  The text to display on each row
+
+    for i, card in enumerate(cards):
+        rows[0] += ' ___  '  # Print the top line of the card.
+        if card == 'BACKSIDE':
+            #  Pint the cards backside.
+            rows[1] += '[## ] '
+            rows[2] += '[###] '
+            rows[3] += '[_##] '
+        else:
+            #  Print the cards front.
+            rank, suit = card #  The card is a tuple data structure.
+            rows[1] += '|{} | '.format(rank.ljust(2))
+            rows[2] += '| {} | '.format(suit)
+            rows[3] += '|_{}| '.format(rank.ljust(2,'_'))
+
+    # print each row on the screen:
+    for row in rows:
+        print(row)
