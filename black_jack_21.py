@@ -80,15 +80,15 @@ def main():
         # Handle the dealer action:
         if getHandValue(playerHand) < 21:
             while getHandValue(dealerHand) < 17:
-        #  Get dealer hits:
-            print("Dealer Hits...")
-            dealerHand.append(deck.pop())
-            displayHands(playerHand, dealerHand, False)
+                #  Get dealer hits:
+                print("Dealer Hits...")
+                dealerHand.append(deck.pop())
+                displayHands(playerHand, dealerHand, False)
 
-            if getHandValue(dealerHand) > 21:
-                break # Dealer ha busted
-            input("Press Enter to continue...")
-            print('\n\n')
+                if getHandValue(dealerHand) > 21:
+                    break  # Dealer ha busted
+                input("Press Enter to continue...")
+                print('\n\n')
 
         # Show final hands:
         displayHands(playerHand, dealerHand, True)
