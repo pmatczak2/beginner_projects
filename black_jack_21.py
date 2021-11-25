@@ -140,3 +140,25 @@ def displayHands(playerHand, dealerHand, showDealerHand):
     print('PLAYER:', getHandValue(playerHand))
     displayCards(playerHand)
 
+def getHandValue(cards):
+    value = 0
+    numberOfAces = 0
+
+    #  Add value fro a none ace card
+    for card in cards:
+        rank = card[0] # card is a tuple like (rank, suit)
+        if rank == 'A':
+            numberOfAces += 1
+        elif rank in ('K', 'Q', 'J'):  #  Face cards are worth 10 points
+            value += 10
+        else:
+            value += int(rank) #  Numbered cards are worth their number.
+
+    #  Add the values for the aces.
+    value += numberOfAces #  Add 1 per ace
+    for i in range(numberOfAces):
+        #  If another 10 can be added with busting, do so:
+        if value + 10 <= 21:
+            value += 10
+
+    return value
