@@ -23,7 +23,7 @@ def main():
     In case of a tie, the bet is returned to the player.
     The dealer stops hitting at 17.''')
 
-    money = 500
+    money = 5000
     while True:  # Main game loop
         # Check if the player is out of money
         if money <= 0:
@@ -126,13 +126,23 @@ def getBet(maxBet):
         if 1 <= bet <= maxBet:
             return bet  # Player entered a valid bet.
 
+def getDeck():
+    deck = []
+    for suit in (HEARTS, DIAMONDS, SPADES, CLUBS):
+        for rank in range(2, 11):
+            deck.append((str(rank), suit))  # Add the numbered cards.
+        for rank in ('J', 'Q', 'K', 'A'):
+            deck.append((rank, suit))  # Add the face and ace cards.
+            random.shuffle(deck)
+        return deck
+
 def displayHands(playerHand, dealerHand, showDealerHand):
     print()
     if showDealerHand:
         print('DEALER:', getHandValue(dealerHand) )
         displayCards(dealerHand)
     else:
-        print('DEALER:???')
+        print('DEALER: ???')
         # Hide the dealer's first card:
         displayCards([BACKSIDE] + dealerHand[1:])
 
@@ -164,22 +174,44 @@ def getHandValue(cards):
     return value
 
 def displayCards(cards):
-    rows = ['', '', '', '', ''] #  The text to display on each row
+    rows = ['', '', '', '', '']  # The text to display on each row.
 
     for i, card in enumerate(cards):
         rows[0] += ' ___  '  # Print the top line of the card.
-        if card == 'BACKSIDE':
+        if card == BACKSIDE:
             #  Pint the cards backside.
             rows[1] += '[## ] '
             rows[2] += '[###] '
             rows[3] += '[_##] '
         else:
             #  Print the cards front.
-            rank, suit = card #  The card is a tuple data structure.
+            rank, suit = card  # The card is a tuple data structure.
             rows[1] += '|{} | '.format(rank.ljust(2))
             rows[2] += '| {} | '.format(suit)
-            rows[3] += '|_{}| '.format(rank.ljust(2,'_'))
+            rows[3] += '|_{}| '.format(rank.rjust(2, '_'))
 
     # print each row on the screen:
     for row in rows:
         print(row)
+
+def getMove(playerHand, money):
+    while True:  # Keep looping until the player enters a correct move.
+        # Determine what moves the player can make:
+        moves = ['(H)it', '(S)tand']
+
+        # The player can double down on their first move, which we can
+        # tell because they'll have exactly two cards:
+        if len(playerHand) == 2 and money > 0:
+            moves.append('(D)ouble down')
+
+        # Get the player's move:
+        movePrompt = ', '.join(moves) + '> '
+        move = input(movePrompt).upper()
+        if move in ('H', 'S'):
+            return move  # Player has entered a valid move.
+        if move == 'D' and '(D)ouble down' in moves:
+            return move  # Player has entered a valid move.
+
+# If the program is run (instead of imported), run the game:
+if __name__ == '__main__':
+    main()

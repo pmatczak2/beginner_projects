@@ -19,7 +19,6 @@ while True:
         if guess in secret_word:
             for index_number, letter in enumerate(secret_word):
                 if letter == guess:
-                    #guesses_so_far.replace(" ", "")
                     guesses_so_far = list(guesses_so_far)
                     guesses_so_far[index_number] = guess
                     guesses_so_far = ''.join(guesses_so_far)
